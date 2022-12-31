@@ -23,7 +23,7 @@ services:
       - my_network
   db:
      build:
-      context: ./db
+      context: ./db-sql
      hostname: mysql
      networks:
       - my_network
