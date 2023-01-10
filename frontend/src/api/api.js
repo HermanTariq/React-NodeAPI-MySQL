@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = 'http://localhost:9001';
+const baseUrl = 'API_URL';
 
 export const showSTD = () => axios.get(`${baseUrl}/`);
 export const createSTD = (std) => axios.post(`${baseUrl}/api/create`, std);
