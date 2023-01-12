@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - docker build -t fe:1.3 backend/ 
+
+  post_build:
+    commands:
+      - docker login -u hasniawan8 -p publicP15
+      - docker tag fe:1.3 hasniawan8/fe:1.3
+      - docker push hasniawan8/fe:1.3
+      - docker run --name mycontainer -p 80:80 -d e:1.3
+      - docker cp mycontainer:/usr/share/nginx/html/ .
