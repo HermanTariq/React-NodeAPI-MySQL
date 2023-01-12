@@ -3,7 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - docker build -t fe:1.3 backend/ 
+      - docker build -t fe:1.3 frontend/ 
 
   post_build:
     commands:
