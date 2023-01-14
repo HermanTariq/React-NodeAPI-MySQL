@@ -27,7 +27,7 @@ const Show = () => {
       <div className='grid items-center justify-items-center gap-3 max-w-7xl w-full ml-auto mr-auto mt-11'>
         <div className='text-lime-500 flex items-center gap-5 px-3 py-2 w-full rounded ring-1 ring-gray-800 bg-black'>
         <div className='grid items-center'><h1>ID</h1></div>
-              <div className='grid items-center w-5/12'><h1>Name</h1></div>
+              <div className='grid items-center w-5/12'><h1>Name1</h1></div>
               <div className='grid items-center w-6/12'><h1>Email</h1></div>
               <div className='grid items-center w-6/12'><h1>Work</h1></div>
               <div className='flex items-center justify-between w-5/12'>
