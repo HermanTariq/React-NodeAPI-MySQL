@@ -26,5 +26,7 @@ jobs:
           aws-region: us-east-1
       - name: Build React App
         run: cd frontend && npm install && npm run build
+      - name: checking Dir and path and files
+        run: pwd && ls 
       - name: Deploy app build to S3 bucket
         run: aws s3 sync ./dist/ s3://react-bucket-678452056 --delete
