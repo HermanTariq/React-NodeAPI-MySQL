@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = 'API_URL';
+const baseUrl = ' http://node-env.eba-mbkdjpmd.us-east-1.elasticbeanstalk.com';
 
 export const showSTD = () => axios.get(`${baseUrl}/`);
 export const createSTD = (std) => axios.post(`${baseUrl}/api/create`, std);
