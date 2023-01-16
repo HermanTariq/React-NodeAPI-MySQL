@@ -5,7 +5,7 @@ ENV API_URL http://node-env.eba-mbkdjpmd.us-east-1.elasticbeanstalk.com
 COPY package.json .
 RUN npm install
 COPY . .
-RUN sed -i "s|API_URL|$API_URL|g" /app/src/api/api.js
+
 
 RUN npm run build
 
