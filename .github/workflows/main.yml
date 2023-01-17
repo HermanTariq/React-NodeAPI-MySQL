@@ -31,7 +31,7 @@ jobs:
       - name: checking Dir and path and files
         run: pwd && ls 
       - name: going to cd Frontend
-        run: cd frontend && ls
+        run: cd frontend && ls && pwd
         
         
       - name: Deploy app build to S3 bucket
