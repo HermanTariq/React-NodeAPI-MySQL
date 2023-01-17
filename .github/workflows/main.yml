@@ -35,4 +35,4 @@ jobs:
         
         
       - name: Deploy app build to S3 bucket
-        run: aws s3 sync /home/runner/work/crud-React-SQL-js/crud-React-SQL-js/frontend/dist/ s3://rossgeller --delete
+        run: aws s3 sync /home/runner/work/crud-React-SQL-js/crud-React-SQL-js/frontend/dist/ s3://myweb.com.cm --delete
