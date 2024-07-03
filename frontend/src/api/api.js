@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = 'http://lb-2-1187940550.us-east-1.elb.amazonaws.com';
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 export const showSTD = () => axios.get(`${baseUrl}/`);
 export const createSTD = (std) => axios.post(`${baseUrl}/api/create`, std);
