@@ -1,6 +1,6 @@
 name: s3-depl
 
-# Controls when the Workflow will run
+# Controls when the Workflow will runn
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
