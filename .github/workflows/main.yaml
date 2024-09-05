@@ -1,6 +1,6 @@
 name: s3-depl
 
-# Controls when the Workflow will runn
+# Controls when the Workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -26,7 +26,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
           
-      - name: backend package install
+      - name: Install PM2
+        run: |
+          npm install -g pm2
+          
+      - name: Backend package install and restart
         run: |
           cd backend
           npm install
