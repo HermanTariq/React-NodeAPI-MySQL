@@ -31,11 +31,7 @@ jobs:
           npm install -g pm2
           
       - name: Backend package install and restart
-        run: |
-          cd backend
-          npm install
-          pm2 restart 0
-          cd ..
+        run: cd backend && npm install && pm2 restart 0 && cd ..
           
       - name: Build React App
         run: |
