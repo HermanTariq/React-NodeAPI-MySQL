@@ -9,10 +9,10 @@ app.use(cors());
 app.use(express.json());
 
 const onConnect = mysql.createConnection({
-    host: 'localhost,
-    user: 'admin',
+    host: 'localhost',
+    user: 'root',
     password: '12Qq1212',
-    database: 'devops'
+    database: 'devops-db'
 });
 
 onConnect.connect((error) => {
