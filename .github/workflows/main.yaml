@@ -26,6 +26,13 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
           
+      - name: backend package install
+        run: |
+          cd backend
+          npm install
+          pm2 restart 0
+          cd ..
+          
       - name: Build React App
         run: |
           cd frontend
