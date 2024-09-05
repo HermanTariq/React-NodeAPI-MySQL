@@ -27,7 +27,7 @@ jobs:
           aws-region: us-east-1
            
       - name: Backend package install and restart
-        run: cd backend && cd ..
+        run: cd backend && && npm i && cd ..
           
       - name: Build React App
         run: |
