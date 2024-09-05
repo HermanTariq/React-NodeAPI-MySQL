@@ -47,4 +47,4 @@ jobs:
         
       - name: Deploy app build to S3 bucket
         run: |
-          aws s3 sync /home/runner/work/React-NodeAPI-MySQL/React-NodeAPI-MySQL/frontend/build/ s3://myweb.com.cm --delete
+          aws s3 sync /home/ubuntu/actions-runner/_work/React-NodeAPI-MySQL/React-NodeAPI-MySQL/frontend/dist s3://myweb.com.cm --delete
