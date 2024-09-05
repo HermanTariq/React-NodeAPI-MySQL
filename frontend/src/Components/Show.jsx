@@ -32,7 +32,7 @@ const Show = () => {
               <div className='grid items-center w-6/12'><h1>Work</h1></div>
               <div className='flex items-center justify-between w-5/12'>
                 <h1>Actions</h1>
-                <Link to={'/create'}><button type='button' className='button-theme'>Create</button></Link>
+                <Link to={'/create'}><button type='button' className='button-theme'>Create Updated</button></Link>
               </div>
         </div>
         {records?.map((val, i) => (
