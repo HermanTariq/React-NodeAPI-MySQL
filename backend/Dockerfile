@@ -1,32 +1,10 @@
-# Base image for building
-FROM node:18 AS build
+FROM node:current-alpine3.16  as build-stage
 
-# Set working directory
 WORKDIR /app
-
-# Copy package.json and package-lock.json
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
-
-# Copy the entire project
+RUN npm install -g pm2
+RUN pm2 init
 COPY . .
-
-# Build the app
-RUN npm run build
-
-# Base image for serving the app
-FROM nginx:alpine
-
-# Copy the built files from the previous stage
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Copy custom nginx configuration (optional)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose the container's port
-EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 9001
+CMD [ "pm2-runtime", "start", "ecosystem.config.js" ]
