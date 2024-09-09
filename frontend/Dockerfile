@@ -1,20 +1,32 @@
-FROM node:current-alpine3.16  as build-stage
+# Base image for building
+FROM node:18 AS build
 
+# Set working directory
 WORKDIR /app
-ENV API_URL http://nodeapi-env.eba-nmpx3itx.us-east-1.elasticbeanstalk.com
-COPY package.json .
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
 RUN npm install
+
+# Copy the entire project
 COPY . .
 
-
+# Build the app
 RUN npm run build
 
+# Base image for serving the app
+FROM nginx:alpine
 
-FROM nginx:1.17.0-alpine
+# Copy the built files from the previous stage
+COPY --from=build /app/dist /usr/share/nginx/html
 
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-COPY default.conf /etc/nginx/conf.d/default.conf
+# Copy custom nginx configuration (optional)
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose the container's port
 EXPOSE 80
-ENV API_URL http://lb-2-1187940550.us-east-1.elb.amazonaws.com
-RUN sed -i "s|{{API_URL}}|$API_URL|g" /etc/nginx/conf.d/default.conf
-CMD nginx -g 'daemon off;'
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
