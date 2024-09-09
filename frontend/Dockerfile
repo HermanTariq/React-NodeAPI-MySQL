@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Expose port Vite will run on
-EXPOSE 3000
+EXPOSE 5173
 
 # Command to build Vite project using environment variables passed at runtime
 CMD ["sh", "-c", "VITE_BASE_URL=$VITE_BASE_URL npm run build && npm run preview"]
