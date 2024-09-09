@@ -1,32 +1,18 @@
-# Base image for building
-FROM node:18 AS build
+# Use an official node image as the base image
+FROM node:18-alpine AS build
 
-# Set working directory
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy package.json and install dependencies
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
 
-# Copy the entire project
+# Copy the rest of the project files
 COPY . .
 
-# Build the app
-RUN npm run build
+# Expose port Vite will run on
+EXPOSE 3000
 
-# Base image for serving the app
-FROM nginx:alpine
-
-# Copy the built files from the previous stage
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Copy custom nginx configuration (optional)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose the container's port
-EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Command to build Vite project using environment variables passed at runtime
+CMD ["sh", "-c", "VITE_BASE_URL=$VITE_BASE_URL npm run build && npm run preview"]
