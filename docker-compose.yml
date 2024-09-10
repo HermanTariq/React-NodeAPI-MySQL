@@ -28,9 +28,7 @@ services:
       - my-network
 
   backend:
-    build:
-      context: ./backend 
-      dockerfile: Dockerfile
+    image: mammarraza/back:1.0
     container_name: backend
     ports:
       - "9001:9001"
@@ -39,6 +37,16 @@ services:
       DB_USER: root
       DB_PASSWORD: 12Qq1212
       DB_DATABASE: devops-db
+    networks:
+      - my-network
+  
+  frontend:
+    image: mammarraza/front:1.0
+    container_name: frontend
+    ports:
+      - "4173:4173"
+    environment:
+      VITE_BASE_URL: http://3.90.103.218:9001
     networks:
       - my-network
 
