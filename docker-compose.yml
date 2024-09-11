@@ -54,6 +54,7 @@ volumes:
   mysql-data:
     driver: local
     driver_opts:
+      type: bind
       o: bind
       device: /mnt/efs/mysql-data 
 
