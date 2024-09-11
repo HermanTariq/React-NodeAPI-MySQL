@@ -52,10 +52,9 @@ services:
 
 volumes:
   mysql-data:
-    driver: local
+    driver: rexray/efs
     driver_opts:
-      o: bind
-      device: /mnt/efs/mysql-data
+      efs_file_system_id: fs-05347bbfc98166d95
 
 networks:
   my-network:
