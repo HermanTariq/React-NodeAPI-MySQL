@@ -46,7 +46,7 @@ services:
     ports:
       - "4173:4173"
     environment:
-      VITE_BASE_URL: http://54.91.214.121:9001
+      VITE_BASE_URL: http://35.175.196.205:9001
     networks:
       - my-network
 
