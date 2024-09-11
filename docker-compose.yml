@@ -55,6 +55,7 @@ volumes:
     driver: rexray/efs
     driver_opts:
       efs_file_system_id: fs-05347bbfc98166d95
+      aws_region: us-east-1 
 
 networks:
   my-network:
