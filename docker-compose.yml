@@ -10,7 +10,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql-data:/var/lib/mysql
+      - /mnt/ebs-volume/mysql-data:/var/lib/mysql
     networks:
       - my-network
 
@@ -39,7 +39,7 @@ services:
       DB_DATABASE: devops-db
     networks:
       - my-network
-  
+
   frontend:
     image: mammarraza/front:1.0
     container_name: frontend
@@ -51,9 +51,7 @@ services:
       - my-network
 
 volumes:
-  mysql-data:
-    driver: local
-
+  # Remove the previous driver configuration
 networks:
   my-network:
     driver: bridge
