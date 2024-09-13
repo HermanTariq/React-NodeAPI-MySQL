@@ -46,12 +46,12 @@ services:
     ports:
       - "4173:4173"
     environment:
-      VITE_BASE_URL: http://34.230.87.125:9001
+      VITE_BASE_URL: http://54.165.57.73:9001
     networks:
       - my-network
 
 volumes:
-  mysql-data: # This is where you declare the volume to be used
+  mysql-data:
     driver: local
     
 networks:
