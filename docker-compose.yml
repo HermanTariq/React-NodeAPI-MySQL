@@ -46,17 +46,13 @@ services:
     ports:
       - "4173:4173"
     environment:
-      VITE_BASE_URL: http://35.175.196.205:9001
+      VITE_BASE_URL: http://3.93.173.244:9001
     networks:
       - my-network
 
 volumes:
   mysql-data:
     driver: local
-    driver_opts:
-      type: bind
-      o: bind
-      device: /mnt/efs/mysql-data 
 
 networks:
   my-network:
