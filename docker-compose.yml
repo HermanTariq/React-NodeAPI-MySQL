@@ -51,7 +51,9 @@ services:
       - my-network
 
 volumes:
-  # Remove the previous driver configuration
+  mysql-data: # This is where you declare the volume to be used
+    driver: local
+    
 networks:
   my-network:
     driver: bridge
