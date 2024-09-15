@@ -10,12 +10,12 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - /mnt/ebs-volume/mysql-data:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
     networks:
       - my-network
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin
     container_name: phpmyadmin
     depends_on:
       - mysql
@@ -39,21 +39,21 @@ services:
       DB_DATABASE: devops-db
     networks:
       - my-network
-
+  
   frontend:
     image: mammarraza/front:1.0
     container_name: frontend
     ports:
       - "4173:4173"
     environment:
-      VITE_BASE_URL: http://54.165.57.73:9001
+      VITE_BASE_URL: http://35.170.81.206:9001
     networks:
       - my-network
 
 volumes:
   mysql-data:
     driver: local
-    
+
 networks:
   my-network:
     driver: bridge
