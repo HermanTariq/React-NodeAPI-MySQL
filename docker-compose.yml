@@ -15,7 +15,7 @@ services:
       - my-network
 
   phpmyadmin:
-    image: phpmyadmin
+    image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
     depends_on:
       - mysql
