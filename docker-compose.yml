@@ -28,7 +28,7 @@ services:
       - my-network
 
   backend:
-    image: mammarraza/back:1.0
+    image: herman099/backend:1.0
     container_name: backend
     depends_on:
       - mysql    
@@ -43,12 +43,12 @@ services:
       - my-network
   
   frontend:
-    image: mammarraza/front:1.0
+    image: herman099/frontend:1.0
     container_name: frontend
     ports:
       - "4173:4173"
     environment:
-      VITE_BASE_URL: http://3.87.162.85:9001
+      VITE_BASE_URL: http://18.208.138.153:9001
     networks:
       - my-network
 
